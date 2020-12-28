@@ -119,17 +119,17 @@ function! s:resize_main_window(window,
 endfunction
 
 function! s:resize_to_golden_ratio()
-    if (exists("b:golden_ratio_resizing_ignored") &&
-        \ b:golden_ratio_resizing_ignored)
+  if (exists("b:golden_ratio_resizing_ignored") &&
+      \ b:golden_ratio_resizing_ignored)
     return
   endif
 
-    if (g:golden_ratio_exclude_nonmodifiable && !&modifiable) ||
-        \ nvim_win_get_config(0)["relative"] != ""
+  if (g:golden_ratio_exclude_nonmodifiable && !&modifiable) ||
+      \ nvim_win_get_config(0)["relative"] != ""
     return
   endif
 
-  if index(g:golden_ratio_exclude_filetypes, &ft) > 0
+  if index(g:golden_ratio_exclude_filetypes, &ft) > -1
     return
   endif
 
